@@ -8,8 +8,9 @@ import java.util.Iterator;
 import java.util.LinkedHashMap;
 
 /**
- * @author User
+ * @author Christian Rivas Pottier
  *
+ * 9 feb. 2021
  */
 public class Electrodomestico {
 	protected double precioBase;
@@ -35,8 +36,8 @@ public class Electrodomestico {
 
 	public Electrodomestico(double precioBase, String color, char consumoEnergetico, double peso) {
 		this.precioBase = precioBase;
-		this.color = color;
-		this.consumoEnergetico = consumoEnergetico;
+		this.color = comprobarColor(color);
+		this.consumoEnergetico = comprobarConsumoEnergetico(consumoEnergetico);
 		this.peso = peso;
 	}
 
@@ -103,7 +104,7 @@ public class Electrodomestico {
 		tamanoPrecio.put(20, 50);
 		tamanoPrecio.put(0, 10);
 		
-		int precio=letraPrecio.get(this.consumoEnergetico);
+		double precio=letraPrecio.get(this.consumoEnergetico);
 		Iterator<Integer> it=tamanoPrecio.keySet().iterator();
 		boolean exit = false;
 		
